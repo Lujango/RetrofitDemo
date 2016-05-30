@@ -5,6 +5,7 @@ import com.facebook.stetho.okhttp3.StethoInterceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -34,6 +35,7 @@ public class Api {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(DrunBiBaseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .client(getClient())
                     .build();
             apiService = retrofit.create(DrunBiApiService.class);
@@ -46,6 +48,7 @@ public class Api {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(GankIOBaseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .client(getClient())
                     .build();
             gankIOApiService = retrofit.create(GankIOApiService.class);
