@@ -14,25 +14,26 @@ import retrofit2.http.Query;
  */
 public class Zhuangbility {
     public static final String API_URL = "http://zhuangbi.info";
-    public static class DrunbiBean{
+
+    public static class DrunbiBean {
         public String description;
         public String image_url;
     }
 
-    public interface Drunbility{
+    public interface Drunbility {
         @GET("/search")
         Call<List<DrunbiBean>> search(@Query("q") String query);
     }
 
 
-    public static void main(String... args) throws IOException{
+    public static void main(String... args) throws IOException {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         Drunbility drunbility = retrofit.create(Drunbility.class);
-        for (DrunbiBean bean:drunbility.search("逼").execute().body()) {
+        for (DrunbiBean bean : drunbility.search("逼").execute().body()) {
             System.out.println(bean.description);
             System.out.println(bean.image_url);
         }
