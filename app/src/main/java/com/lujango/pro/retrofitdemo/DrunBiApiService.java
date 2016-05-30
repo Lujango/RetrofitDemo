@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 /**
  * Created by pro on 16/5/27.
  */
-public interface ApiService {
+public interface DrunBiApiService {
     @GET("/search")
     Call<List<DrunbiBean>> search(@Query("q") String query);
 
