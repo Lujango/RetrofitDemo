@@ -9,8 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Api {
     private static DrunBiApiService apiService;
     private static GankIOApiService gankIOApiService;
-    private static String DrunBiBaseUrl = "http://zhuangbi.info";
-    private static String GankIOBaseUrl = "http://gank.io/api";
+    private static String DrunBiBaseUrl = "http://zhuangbi.info/";
+    private static String GankIOBaseUrl = "http://gank.io/api/";
 
     public static DrunBiApiService getDrunBiApiService(){
         if (apiService==null){
