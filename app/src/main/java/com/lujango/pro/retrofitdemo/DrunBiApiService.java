@@ -14,6 +14,8 @@ import rx.Observable;
  */
 public interface DrunBiApiService {
     @GET("search")
-    Call<List<DrunbiBean>> search(@Query("q") String query);@GET("search")
+    Call<List<DrunbiBean>> search(@Query("q") String query);
+
+    @GET("search")
     Observable<List<DrunbiBean>> rxSearch(@Query("q") String query);
 }
